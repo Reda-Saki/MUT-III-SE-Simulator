@@ -1,0 +1,117 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUT-III SE Virtual</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .step {
+            display: none;
+            position: relative;
+            text-align: center;
+        }
+        .step img {
+            max-width: 100%;
+            height: auto;
+        }
+        .active {
+            display: block;
+        }
+        .button {
+            position: absolute;
+            background-color: transparent;
+            color: red;
+            border: 2px solid red;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: rgba(255, 0, 0, 0.1);
+        }
+
+        .spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid red;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="step active" id="step1">
+        <img src="Screenshot (869).png" alt="Step 1">
+        <button class="button" style="top: 392px; left: 49px; width: 813px; height: 60px;" onclick="showStep('step2')"></button>
+    </div>
+
+    <div class="step" id="step2">
+        <img src="Screenshot (870).png" alt="Step 2">
+        <button class="button" style="top: 50px; left: 300px; width: 100px; height: 50px;" onclick="showStep('step3')"></button>
+    </div>
+
+    <div class="step" id="step3">
+        <img src="Screenshot (871).png" alt="Step 3">
+        <button class="button" style="top: 50px; left: 300px; width: 100px; height: 50px;" onclick="showStep('step4')"></button>
+    </div>
+
+    <div class="step" id="step4">
+        <img src="Screenshot (877).png" alt="Step 4">
+        <button class="button" style="top: 50px; left: 300px; width: 100px; height: 50px;" onclick="showStep('step5')"></button>
+    </div>
+
+    <div class="step" id="step5">
+        <img src="Screenshot (878).png" alt="Step 5">
+        <button class="button" style="top: 50px; left: 300px; width: 100px; height: 50px;" onclick="showStep('step6')"></button>
+    </div>
+
+    <div class="step" id="step6">
+        <img src="Screenshot (879).png" alt="Step 6">
+        <button class="button" style="top: 50px; left: 300px; width: 100px; height: 50px;" onclick="showStep('step7')"></button>
+    </div>
+
+    <div class="step" id="step7">
+        <img src="Screenshot (880).png" alt="Step 7">
+        <button class="button" style="top: 50px; left: 300px; width: 100px; height: 50px;" onclick="showStep('step8')"></button>
+    </div>
+
+    <div class="step" id="step8">
+        <img src="Screenshot (881).png" alt="Step 8">
+        <button class="button" style="top: 50px; left: 300px; width: 100px; height: 50px;" onclick="showStep('step1')"></button>
+    </div>
+
+    <div id="spinner" class="spinner"></div>
+
+    <script>
+        function showStep(stepId) {
+            document.getElementById('spinner').style.display = 'block';
+            setTimeout(function() {
+                document.querySelectorAll('.step').forEach(step => {
+                    step.classList.remove('active');
+                });
+                document.getElementById(stepId).classList.add('active');
+                document.getElementById('spinner').style.display = 'none';
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
+
